@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { BASE_URL } from "Web_API";
 
 export default function UserImage({ picturePath, size = "60px" }) {
   return (
@@ -7,7 +8,7 @@ export default function UserImage({ picturePath, size = "60px" }) {
         style={{ objectFit: "cover", borderRadius: "50%" }}
         width={size}
         height={size}
-        src={`http://localhost:5001/assets/${picturePath}`}
+        src={`${BASE_URL}/assets/${picturePath}`}
         alt="user"
       />
     </Box>

@@ -7,6 +7,7 @@ import UserWidget from "components/widgets/UserWidget";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "Web_API";
 
 export default function ProfilePage() {
   const [user, setUser] = useState(null);
@@ -16,7 +17,7 @@ export default function ProfilePage() {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
   const getUser = () => {
-    fetch(`http://localhost:5001/users/${userId}`, {
+    fetch(`${BASE_URL}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -28,7 +29,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [userId]);
 
   return (
     <Box>

@@ -24,6 +24,7 @@ import Dropzone from "react-dropzone";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "redux/reducers/authSlice";
+import { BASE_URL } from "Web_API";
 
 export default function MyPostWidget({ picturePath }) {
   const [post, setPost] = useState("");
@@ -49,7 +50,7 @@ export default function MyPostWidget({ picturePath }) {
       formData.append("picturePath", image.name);
     }
 
-    await fetch(`http://localhost:5001/posts`, {
+    await fetch(`${BASE_URL}/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

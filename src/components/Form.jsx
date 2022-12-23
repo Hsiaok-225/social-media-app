@@ -11,10 +11,11 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Dropzone from "react-dropzone";
 import { login } from "redux/reducers/authSlice";
 import FlexBetween from "./FlexBetween";
+import { BASE_URL } from "Web_API";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -64,7 +65,7 @@ export default function Form() {
     }
     formData.append("picturePath", values.picture.name);
 
-    await fetch("http://localhost:5001/auth/register", {
+    await fetch(`${BASE_URL}/auth/register`, {
       method: "POST",
       body: formData,
     })
@@ -84,7 +85,7 @@ export default function Form() {
   };
 
   const handleLogin = async (values, onSubmitProps) => {
-    await fetch("http://localhost:5001/auth/login", {
+    await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

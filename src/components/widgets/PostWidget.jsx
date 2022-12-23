@@ -10,6 +10,7 @@ import Friend from "components/Friend";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "redux/reducers/authSlice";
+import { BASE_URL } from "Web_API";
 
 export default function PostWidget(props) {
   const {
@@ -40,7 +41,7 @@ export default function PostWidget(props) {
   const handlePatchLike = () => {
     // _id = postId
     // userId = loggedUserId
-    fetch(`http://localhost:5001/posts/${_id}/like`, {
+    fetch(`${BASE_URL}/posts/${_id}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -57,7 +58,6 @@ export default function PostWidget(props) {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         dispatch(setPost({ post: data }));
       })
       .catch((err) => console.log(err));
@@ -78,7 +78,7 @@ export default function PostWidget(props) {
         <img
           width="100%"
           height="auto"
-          src={`http://localhost:5001/assets/${picturePath}`}
+          src={`${BASE_URL}/assets/${picturePath}`}
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
           alt="post"
         />

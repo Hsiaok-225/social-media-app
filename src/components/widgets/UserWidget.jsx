@@ -12,6 +12,7 @@ import WidgetWrapper from "components/WidgetWrapper";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "Web_API";
 
 export default function UserWidget({ userId }) {
   const [user, setUser] = useState(null);
@@ -36,7 +37,7 @@ export default function UserWidget({ userId }) {
 
   useEffect(() => {
     const getUser = async () => {
-      const data = await fetch(`http://localhost:5001/users/${userId}`, {
+      const data = await fetch(`${BASE_URL}/users/${userId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

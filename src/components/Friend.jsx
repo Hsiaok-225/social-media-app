@@ -4,6 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setFriends } from "redux/reducers/authSlice";
+import { BASE_URL } from "Web_API";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
@@ -22,7 +23,7 @@ export default function Friend({ friendId, name, subtitle, userPicturePath }) {
   const isFriend = user.friends.find((friend) => friend._id === friendId);
 
   const handlePatchFriends = () => {
-    fetch(`http://localhost:5001/users/${_id}/${friendId}`, {
+    fetch(`${BASE_URL}/users/${_id}/${friendId}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -4,6 +4,7 @@ import WidgetWrapper from "components/WidgetWrapper";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "redux/reducers/authSlice";
+import { BASE_URL } from "Web_API";
 
 export default function FriendListWidget({ userId }) {
   const {
@@ -14,7 +15,7 @@ export default function FriendListWidget({ userId }) {
   const { palette } = useTheme();
 
   const getFriends = () => {
-    fetch(`http://localhost:5001/users/${userId}/friends`, {
+    fetch(`${BASE_URL}/users/${userId}/friends`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -31,7 +32,7 @@ export default function FriendListWidget({ userId }) {
 
   useEffect(() => {
     getFriends();
-  }, []);
+  }, [userId]);
 
   return (
     <WidgetWrapper>
