@@ -3,18 +3,18 @@ This project was bootstrapped with Create React App template.
 # Social-Media Website
 
 ## Demo
+![image](https://github.com/Hsiaok-225/social-media-app/blob/main/src/assets/social-demo.gif)
 
 ## Features
 
-- Login and register with validation
-- Using JWT authentication
-- Add and create new post
-- See users news feed of all the posts that have been - created
-- Like and dislike any posts, view the comments
-- Add, remove friends from friends list
-- Person's profile page and see their user post
+- Login and register validation
+- JWT authentication
+- Create new post and see news feed of all the posts that have been created
+- Like and dislike any posts, view comments
+- Add and remove friends from friends list
+- Person's profile page see their user post
 - Light and Dark mode
-- Responsive web design
+- Responsive web design(RWD)
 
 ## Technologies
 
