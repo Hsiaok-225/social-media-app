@@ -5,6 +5,10 @@ This project was bootstrapped with Create React App template.
 ## Demo
 ![image](https://github.com/Hsiaok-225/social-media-app/blob/main/src/assets/social-demo.gif)
 
+### Test Account
+Email: admain@gmail.com
+password: 123
+
 ## Features
 
 - Login and register validation
